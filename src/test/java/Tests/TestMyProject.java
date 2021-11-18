@@ -15,5 +15,5 @@ public class TestMyProject extends SettingsForHtmlPage {
         mainPageHtml.ClickLink3();
     }
 
-    
+
 }
