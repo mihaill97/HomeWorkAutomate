@@ -2,6 +2,10 @@ package Pages999;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
+import java.util.List;
 
 public class MainPageAuthorized {
     private WebDriver driver;
@@ -13,7 +17,15 @@ public class MainPageAuthorized {
     By LogoutBtn = By.xpath("//button[@class='user-item-dropdown-btn' and contains (text(),'выход')]");
 
     public void Logout(){
-        driver.findElement(UserNameBtn).click();
-        driver.findElement(LogoutBtn).click();
+        WebElement userMenu = driver.findElement(By.id("user-username-btn"));
+
+        Actions action = new Actions(driver);
+        action.moveToElement(userMenu).perform();
+
+        WebElement button = driver.findElement(By.xpath("//button[@class='user-item-dropdown-btn' and contains (text(),'выход')]"));
+        button.click();
+
+//        driver.findElement(UserNameBtn).click();
+//        driver.findElement(LogoutBtn).click();
     }
 }
